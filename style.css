@@ -1,0 +1,127 @@
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url("./images/weather\ backgruound.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: blur(8px);
+  z-index: -1;
+}
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.main {
+    background-image: url("./images/weather\ backgruound.png\ 2.avif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    
+    width: 90%; 
+    max-width: 450px; 
+    min-height: 80vh; 
+    
+    border-radius: 15px;
+    margin: 50px auto; 
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.8); 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    box-sizing:content-box;
+}
+
+.main::before {
+  background-image: url(./images/weather\ backgruound.png\ 2.avif);
+  height: 80vh;
+  width: 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#take-input,
+#check {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+}
+
+h1 {
+  margin-top: -200px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+#check {
+  background-color: #fff;
+}
+
+
+#para1,
+#para2,
+#para3,
+#para4,
+#para5,
+#para6,
+#para7,
+#para8{
+    font-size: 56px;
+    color: #fff;
+    margin: 5px;
+    margin-top: 15px;
+    text-shadow: 1px 1px 2px #000;
+    word-spacing: 80px;
+}
+    
+
+/* چھوٹے موبائلز کے لیے (500px یا اس سے کم) */
+
+@media (max-width: 500px) {
+  .main {
+    width: 95%;
+    min-height: 80vh;
+    margin: 20px auto;
+   
+  }
+
+  #take-input,
+#check {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+  width: 42%;
+}
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ٹیبلیٹس کے لیے (768px تک) */
+
+@media (max-width: 768px) {
+  .main {
+    width: 80%;
+  }
+}
