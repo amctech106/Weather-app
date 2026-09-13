@@ -1,17 +1,31 @@
+/* =========================
+   BODY
+========================= */
+
 body {
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  margin: 0;
+
+  overflow-x: hidden;
+
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
 }
 
+
+/* =========================
+   BLURRED BACKGROUND
+========================= */
+
 body::before {
   content: "";
-  position: absolute;
+
+  position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
 
@@ -19,109 +33,320 @@ body::before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
   filter: blur(8px);
+
+  transform: scale(1.05);
+
   z-index: -1;
 }
-.content {
-  position: relative;
-  z-index: 1;
-  color: white;
-}
+
+
+/* =========================
+   MAIN WEATHER BOX
+========================= */
 
 .main {
-    background-image: url("./images/weather\ backgruound.png\ 2.avif");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    
-    
-    width: 90%; 
-    max-width: 450px; 
-    min-height: 80vh; 
-    
-    border-radius: 15px;
-    margin: 50px auto; 
-    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.8); 
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; 
-    box-sizing:content-box;
-}
-
-.main::before {
-  background-image: url(./images/weather\ backgruound.png\ 2.avif);
-  height: 80vh;
-  width: 30%;
+  background-image: url("./images/weather\ backgruound.png\ 2.avif");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+
+  width: 100%;
+  max-width: 600px;
+
+  min-height: 80vh;
+
+  margin: 30px auto;
+  padding: 25px;
+
+  box-sizing: border-box;
+
+  border-radius: 15px;
+
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  overflow: hidden;
 }
 
-#take-input,
-#check {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  margin: 5px;
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  color: #fff;
 }
+
+
+/* =========================
+   HEADING
+========================= */
 
 h1 {
-  margin-top: -200px;
-  text-shadow: 1px 1px 2px #000;
+  width: 100%;
+
+  margin: 10px 0 25px 0;
+
+  font-size: 32px;
+  line-height: 1.2;
+
+  text-align: center;
+
+  text-shadow: 2px 2px 4px #000;
 }
+
+
+/* =========================
+   SEARCH BOX (Input + Button side by side)
+========================= */
+
+form,
+.search-box {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+#take-input {
+  flex: 1;
+  max-width: 400px;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+
+/* =========================
+   CHECK WEATHER BUTTON
+========================= */
 
 #check {
+  flex-shrink: 0;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 8px;
+
   background-color: #fff;
+
+  color: #222;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  white-space: nowrap;
+
+  transition: transform 0.1s ease;
+}
+
+#check:active {
+  transform: scale(0.97);
 }
 
 
-#para1,
-#para2,
-#para3,
-#para4,
-#para5,
-#para6,
-#para7,
-#para8{
-    font-size: 56px;
-    color: #fff;
-    margin: 5px;
-    margin-top: 15px;
-    text-shadow: 1px 1px 2px #000;
-    word-spacing: 80px;
-}
-    
+/* =========================
+   WEATHER TABLE
+========================= */
 
-/* چھوٹے موبائلز کے لیے (500px یا اس سے کم) */
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 10px;
+
+}
+
+table tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+table td {
+  padding: 10px 14px;
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
+  text-align: left;
+}
+
+table td:first-child {
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+#para1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+
+/* =========================
+   MOBILE
+   500px OR LESS
+========================= */
 
 @media (max-width: 500px) {
+
   .main {
-    width: 95%;
-    min-height: 80vh;
+    width: 92%;
+
+    min-height: auto;
+
     margin: 20px auto;
-   
+
+    padding: 20px 15px;
+
+    border-radius: 15px;
   }
 
-  #take-input,
-#check {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  margin: 5px;
-  width: 42%;
-}
+
+  /* Heading */
 
   h1 {
-    font-size: 2rem;
+    font-size: 28px;
+
+    margin: 5px 0 20px 0;
+  }
+
+
+  /* Search */
+
+  form,
+  .search-box {
+    gap: 8px;
+
+    margin-bottom: 15px;
+  }
+
+
+  /* Input */
+
+  #take-input {
+    padding: 11px;
+
+    font-size: 15px;
+  }
+
+
+  /* Button */
+
+  #check {
+    padding: 11px 12px;
+
+    font-size: 14px;
+  }
+
+
+  /* Table */
+
+  table td {
+    font-size: 17px;
+    padding: 8px 10px;
+  }
+
+  #para1 {
+    font-size: 32px;
   }
 }
 
-/* ٹیبلیٹس کے لیے (768px تک) */
 
-@media (max-width: 768px) {
+/* =========================
+   VERY SMALL MOBILE
+   350px OR LESS
+========================= */
+
+@media (max-width: 350px) {
+
+  .main {
+    width: 94%;
+
+    padding: 15px 10px;
+  }
+
+
+  h1 {
+    font-size: 24px;
+  }
+
+
+  #take-input {
+    font-size: 14px;
+  }
+
+
+  #check {
+    font-size: 13px;
+
+    padding: 10px 10px;
+  }
+
+
+  table td {
+    font-size: 15px;
+    padding: 6px 8px;
+  }
+
+  #para1 {
+    font-size: 28px;
+  }
+}
+
+
+/* =========================
+   TABLET
+   501px - 768px
+========================= */
+
+@media (min-width: 501px) and (max-width: 768px) {
+
   .main {
     width: 80%;
+
+    max-width: 500px;
+  }
+
+
+  h1 {
+    font-size: 30px;
+  }
+
+  table td {
+    font-size: 19px;
   }
 }

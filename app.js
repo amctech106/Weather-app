@@ -23,11 +23,31 @@ checkBtn.addEventListener("click", async function (event) {
   const result = await axios(
     `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city}`,
   );
-console.log(result)
+  
   takeInput.value =""
 
-  para1.innerHTML = ` <i data-lucide="cloud"></i>
-  ${result.data.current.cloud}`
- para2.innerHTML= `°C ${result.data.current.temp_c}`
-});
 
+  para1.innerHTML = `<i class="fa-solid fa-cloud"></i>`
+
+  document.querySelector("#label2").innerHTML = "Temp"
+  para2.innerHTML = `°C ${Math.floor(result.data.current.temp_c)}`
+
+  document.querySelector("#label3").innerHTML = "Feeling"
+  para3.innerHTML = `${Math.floor(result.data.current.feelslike_c)}`
+
+  document.querySelector("#label4").innerHTML = "Humidity"
+  para4.innerHTML = `${result.data.current.humidity}`
+
+  document.querySelector("#label5").innerHTML = "Wind Kph"
+  para5.innerHTML = `${result.data.current.wind_kph}`
+
+  document.querySelector("#label6").innerHTML = "Country"
+  para6.innerHTML = `${result.data.location.country}`
+
+  document.querySelector("#label7").innerHTML = "Province"
+  para7.innerHTML = `${result.data.location.region}`
+
+  document.querySelector("#label8").innerHTML = "City"
+  para8.innerHTML = `${result.data.location.name}`
+
+});
