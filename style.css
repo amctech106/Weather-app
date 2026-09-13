@@ -251,12 +251,16 @@ table td:first-child {
     margin-bottom: 15px;
   }
 
+
   /* Input */
 
   #take-input {
     padding: 11px;
 
     font-size: 15px;
+    flex: none;
+    width: 60%;
+    max-width: 200px;
   }
 
   /* Button */
@@ -297,6 +301,9 @@ table td:first-child {
 
   #take-input {
     font-size: 14px;
+    flex: none;
+    width: 55%;
+    max-width: 160px;
   }
 
   #check {
@@ -325,6 +332,10 @@ table td:first-child {
     width: 80%;
 
     max-width: 500px;
+  }
+
+  #takeInput{
+    max-width: 300px;
   }
 
   h1 {
