@@ -14,35 +14,34 @@ const para6 = document.querySelector("#para6");
 const para7 = document.querySelector("#para7");
 const para8 = document.querySelector("#para8");
 
-//  ڈیٹا کو دکھانے والا فنکشن بنالیا ہے 
+//  ڈیٹا کو دکھانے والا فنکشن بنالیا ہے
 
 function showWeather(data) {
-  para1.innerHTML = `<i class="fa-solid fa-cloud"></i>`
+  para1.innerHTML = `<i class="fa-solid fa-cloud"></i>`;
 
-  document.querySelector("#label2").innerHTML = "Temp"
-  para2.innerHTML = `°C ${Math.floor(data.current.temp_c)}`
+  document.querySelector("#label2").innerHTML = "Temp";
+  para2.innerHTML = `°C ${Math.floor(data.current.temp_c)}`;
 
-  document.querySelector("#label3").innerHTML = "Feeling"
-  para3.innerHTML = `${Math.floor(data.current.feelslike_c)}`
+  document.querySelector("#label3").innerHTML = "Feeling";
+  para3.innerHTML = `${Math.floor(data.current.feelslike_c)}`;
 
-  document.querySelector("#label4").innerHTML = "Humidity"
-  para4.innerHTML = `${data.current.humidity}`
+  document.querySelector("#label4").innerHTML = "Humidity";
+  para4.innerHTML = `${data.current.humidity}`;
 
-  document.querySelector("#label5").innerHTML = "Wind Kph"
-  para5.innerHTML = `${data.current.wind_kph}`
+  document.querySelector("#label5").innerHTML = "Wind Kph";
+  para5.innerHTML = `${data.current.wind_kph}`;
 
-  document.querySelector("#label6").innerHTML = "Country"
-  para6.innerHTML = `${data.location.country}`
+  document.querySelector("#label6").innerHTML = "Country";
+  para6.innerHTML = `${data.location.country}`;
 
-  document.querySelector("#label7").innerHTML = "Province"
-  para7.innerHTML = `${data.location.region}`
+  document.querySelector("#label7").innerHTML = "Province";
+  para7.innerHTML = `${data.location.region}`;
 
-  document.querySelector("#label8").innerHTML = "City"
-  para8.innerHTML = `${data.location.name}`
- 
+  document.querySelector("#label8").innerHTML = "City";
+  para8.innerHTML = `${data.location.name}`;
 }
 
-// چیک بٹن کلک کرنے پر یہ فنکشن چلے گا ۔ 
+// چیک بٹن کلک کرنے پر یہ فنکشن چلے گا ۔
 
 checkBtn.addEventListener("click", async function (event) {
   event.preventDefault();
@@ -53,18 +52,17 @@ checkBtn.addEventListener("click", async function (event) {
     `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city}`,
   );
 
-  takeInput.value =""
+  takeInput.value = "";
 
-  localStorage.setItem("weatherData",JSON.stringify(result.data))
+  localStorage.setItem("weatherData", JSON.stringify(result.data));
 
-  refreshBtn.style.display="block"
-  showWeather(result.data)
- 
+  refreshBtn.style.display = "block";
+  showWeather(result.data);
 });
 
 const saved = localStorage.getItem("weatherData");
 if (saved) {
-  showWeather( JSON.parse(saved));
+  showWeather(JSON.parse(saved));
   refreshBtn.style.display = "block";
 }
 
@@ -87,5 +85,5 @@ refreshBtn.addEventListener("click", function () {
   document.querySelector("#label6").innerHTML = "";
   document.querySelector("#label7").innerHTML = "";
   document.querySelector("#label8").innerHTML = "";
-  document.querySelector(".reset").display ="none"
+  document.querySelector(".reset").display = "none";
 });

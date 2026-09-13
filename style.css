@@ -14,7 +14,6 @@ body {
   color: #fff;
 }
 
-
 /* =========================
    BLURRED BACKGROUND
 ========================= */
@@ -40,7 +39,6 @@ body::before {
 
   z-index: -1;
 }
-
 
 /* =========================
    MAIN WEATHER BOX
@@ -75,7 +73,6 @@ body::before {
   overflow: hidden;
 }
 
-
 /* =========================
    CONTENT
 ========================= */
@@ -89,7 +86,6 @@ body::before {
 
   color: #fff;
 }
-
 
 /* =========================
    HEADING
@@ -108,7 +104,6 @@ h1 {
   text-shadow: 2px 2px 4px #000;
 }
 
-
 /* =========================
    SEARCH BOX (Input + Button side by side)
 ========================= */
@@ -126,7 +121,6 @@ form,
 
   margin-bottom: 20px;
 }
-
 
 /* =========================
    INPUT
@@ -147,7 +141,6 @@ form,
 
   outline: none;
 }
-
 
 /* =========================
    CHECK WEATHER BUTTON
@@ -181,7 +174,6 @@ form,
   transform: scale(0.97);
 }
 
-
 /* =========================
    WEATHER TABLE
 ========================= */
@@ -190,7 +182,6 @@ table {
   width: 80%;
   border-collapse: collapse;
   margin-top: 10px;
-
 }
 
 table tr {
@@ -215,16 +206,15 @@ table td:first-child {
   font-size: 50px;
 }
 
-.reset{
+.reset {
   padding: 7px 30px;
   border-radius: 5px;
   background-color: #ffff;
-  color:#000;
+  color: #000;
   border: none;
-    box-shadow: 2px 2px 4px #000;
-    display: none;
+  box-shadow: 2px 2px 4px #000;
+  display: none;
 }
-
 
 /* =========================
    MOBILE
@@ -232,7 +222,6 @@ table td:first-child {
 ========================= */
 
 @media (max-width: 500px) {
-
   .main {
     width: 92%;
 
@@ -245,7 +234,6 @@ table td:first-child {
     border-radius: 15px;
   }
 
-
   /* Heading */
 
   h1 {
@@ -253,7 +241,6 @@ table td:first-child {
 
     margin: 5px 0 20px 0;
   }
-
 
   /* Search */
 
@@ -264,7 +251,6 @@ table td:first-child {
     margin-bottom: 15px;
   }
 
-
   /* Input */
 
   #take-input {
@@ -273,7 +259,6 @@ table td:first-child {
     font-size: 15px;
   }
 
-
   /* Button */
 
   #check {
@@ -281,7 +266,6 @@ table td:first-child {
 
     font-size: 14px;
   }
-
 
   /* Table */
 
@@ -295,37 +279,31 @@ table td:first-child {
   }
 }
 
-
 /* =========================
    VERY SMALL MOBILE
    350px OR LESS
 ========================= */
 
 @media (max-width: 350px) {
-
   .main {
     width: 94%;
 
     padding: 15px 10px;
   }
 
-
   h1 {
     font-size: 24px;
   }
 
-
   #take-input {
     font-size: 14px;
   }
-
 
   #check {
     font-size: 13px;
 
     padding: 10px 10px;
   }
-
 
   table td {
     font-size: 15px;
@@ -337,20 +315,17 @@ table td:first-child {
   }
 }
 
-
 /* =========================
    TABLET
    501px - 768px
 ========================= */
 
 @media (min-width: 501px) and (max-width: 768px) {
-
   .main {
     width: 80%;
 
     max-width: 500px;
   }
-
 
   h1 {
     font-size: 30px;
