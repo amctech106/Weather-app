@@ -33,7 +33,7 @@ body::before {
   background-position: center;
   background-size: cover;
 
-  filter: blur(8px);
+  /* filter: blur(8px); */
 
   transform: scale(1.05);
 
