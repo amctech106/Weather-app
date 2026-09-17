@@ -2,6 +2,7 @@
 const takeInput = document.querySelector("#take-input");
 const checkBtn = document.querySelector("#check");
 const refreshBtn = document.querySelector("#reset");
+takeInput.value = localStorage.getItem("saveInp") || "";
 
 //ٹیبل کا پہلے کالمز سلیکٹ کیا
 
@@ -27,39 +28,87 @@ const para8 = document.querySelector("#para8");
 // چیک بٹن کلک کرنے پر یہ فنکشن چلے گا ۔
 
 checkBtn.addEventListener("click", async function (event) {
-  event.preventDefault();
+  try {
+    event.preventDefault();
 
-  const city = takeInput.value.trim();
+    const city = takeInput.value.trim();
+    localStorage.setItem("saveInp", city);
 
+    if (city === "") {
+      para1.innerHTML = "Please Enter any City Name";
 
-  const result = await axios(
-    `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city}`,
-  );
+      label2.innerHTML = "";
+      para2.innerHTML = "";
 
+      label3.innerHTML = "";
+      para3.innerHTML = "";
 
-  takeInput.value = "";
+      label4.innerHTML = "";
+      para4.innerHTML = "";
 
+      label5.innerHTML = "";
+      para5.innerHTML = "";
 
-  para1.innerHTML = `<i class="fa-solid fa-cloud"></i>`;
+      label6.innerHTML = "";
+      para6.innerHTML = "";
 
-  label2.innerHTML = "Temp";
-  para2.innerHTML = `${Math.floor(result.data.current.temp_c)}°C `;
+      label7.innerHTML = "";
+      para7.innerHTML = "";
 
-  label3.innerHTML = "Feeling";
-  para3.innerHTML = `${Math.floor(result.data.current.feelslike_c)}`;
+      label8.innerHTML = "";
+      para8.innerHTML = "";
+      return;
+    }
+    const result = await axios(
+      `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city}`,
+    );
 
-  label4.innerHTML = "Humidity";
-  para4.innerHTML = `${result.data.current.humidity}`;
+    takeInput.value = "";
 
-  label5.innerHTML = "Wind Kph";
-  para5.innerHTML = `${result.data.current.wind_kph}`;
+    para1.innerHTML = `<i class="fa-solid fa-cloud"></i>`;
 
-  label6.innerHTML = "Country";
-  para6.innerHTML = `${result.data.location.country}`;
+    label2.innerHTML = "Temp";
+    para2.innerHTML = `${Math.floor(result.data.current.temp_c)}°C `;
 
-  label7.innerHTML = "Province";
-  para7.innerHTML = `${result.data.location.region}`;
+    label3.innerHTML = "Feeling";
+    para3.innerHTML = `${Math.floor(result.data.current.feelslike_c)}`;
 
-  label8.innerHTML = "City";
-  para8.innerHTML = `${result.data.location.name}`;
+    label4.innerHTML = "Humidity";
+    para4.innerHTML = `${result.data.current.humidity}`;
+
+    label5.innerHTML = "Wind Kph";
+    para5.innerHTML = `${result.data.current.wind_kph}`;
+
+    label6.innerHTML = "Country";
+    para6.innerHTML = `${result.data.location.country}`;
+
+    label7.innerHTML = "Province";
+    para7.innerHTML = `${result.data.location.region}`;
+
+    label8.innerHTML = "City";
+    para8.innerHTML = `${result.data.location.name}`;
+  } catch (error) {
+    para1.innerHTML = error.response.data.error.message;
+
+    label2.innerHTML = "";
+    para2.innerHTML = "";
+
+    label3.innerHTML = "";
+    para3.innerHTML = "";
+
+    label4.innerHTML = "";
+    para4.innerHTML = "";
+
+    label5.innerHTML = "";
+    para5.innerHTML = "";
+
+    label6.innerHTML = "";
+    para6.innerHTML = "";
+
+    label7.innerHTML = "";
+    para7.innerHTML = "";
+
+    label8.innerHTML = "";
+    para8.innerHTML = "";
+  }
 });
