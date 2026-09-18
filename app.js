@@ -1,10 +1,10 @@
 // ان پٹ اور بٹن کو سلیکٹ کیا
 const takeInput = document.querySelector("#take-input");
 const checkBtn = document.querySelector("#check");
-const refreshBtn = document.querySelector("#reset");
 takeInput.value = localStorage.getItem("saveInp") || "";
 
 //ٹیبل کا پہلے کالمز سلیکٹ کیا
+
 
 const label2 = document.querySelector("#label2");
 const label3 = document.querySelector("#label3");
@@ -16,6 +16,7 @@ const label8 = document.querySelector("#label8");
 
 // ٹیبل کے دوسرے کالمز کو سلیکٹ کیا
 
+const para0 = document.querySelector("#para0");
 const para1 = document.querySelector("#para1");
 const para2 = document.querySelector("#para2");
 const para3 = document.querySelector("#para3");
@@ -65,8 +66,9 @@ checkBtn.addEventListener("click", async function (event) {
 
     takeInput.value = "";
 
-    para1.innerHTML = `<i class="fa-solid fa-cloud"></i>`;
-
+    para0.src = `${result.data.current.condition.icon}`;
+    para0.style.display = "block";
+    
     label2.innerHTML = "Temp";
     para2.innerHTML = `${Math.floor(result.data.current.temp_c)}°C `;
 
