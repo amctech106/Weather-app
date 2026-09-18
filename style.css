@@ -30,7 +30,7 @@ body::before {
   background-position: center;
   background-size: cover;
 
-  filter: blur(2px);
+  
   transform: scale(1.1);
 
   animation: smoky-clouds 12s ease-in-out infinite alternate;
@@ -207,7 +207,7 @@ table td {
   font-size: 30px;
   color: #fff;
   text-shadow: 2px 2px 4px #000;
-  text-align: left;
+  text-align: center;
 }
 
 table td:first-child {
