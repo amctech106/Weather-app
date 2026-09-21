@@ -92,6 +92,7 @@ checkBtn.addEventListener("click", async function (event) {
   } catch (error) {
     para1.innerHTML = error.response.data.error.message;
 
+    para0.src = `${result.data.current.condition.icon}`;
     label2.innerHTML = "";
     para2.innerHTML = "";
 
