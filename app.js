@@ -16,6 +16,7 @@ const label8 = document.querySelector("#label8");
 
 // ٹیبل کے دوسرے کالمز کو سلیکٹ کیا
 
+// const para01= document.querySelector("#para01");
 const para0 = document.querySelector("#para0");
 const para1 = document.querySelector("#para1");
 const para2 = document.querySelector("#para2");
@@ -38,6 +39,8 @@ checkBtn.addEventListener("click", async function (event) {
     if (city === "") {
       para1.innerHTML = "Please Enter any City Name";
 
+      // para0.src = URL("https://icons8.com/preloaders/preloaders/151/preview.gif");
+      // para0.style.display= "none"
       label2.innerHTML = "";
       para2.innerHTML = "";
 
@@ -60,10 +63,12 @@ checkBtn.addEventListener("click", async function (event) {
       para8.innerHTML = "";
       return;
     }
+
     const result = await axios(
       `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city}`,
     );
 
+    para1.innerHTML=""
     takeInput.value = "";
 
     para0.src = `${result.data.current.condition.icon}`;
@@ -89,10 +94,12 @@ checkBtn.addEventListener("click", async function (event) {
 
     label8.innerHTML = "City";
     para8.innerHTML = `${result.data.location.name}`;
+  
   } catch (error) {
     para1.innerHTML = error.response.data.error.message;
 
     para0.src = ``;
+    para0.style.display="none"
     label2.innerHTML = "";
     para2.innerHTML = "";
 
