@@ -5,7 +5,6 @@ takeInput.value = localStorage.getItem("saveInp") || "";
 
 //ٹیبل کا پہلے کالمز سلیکٹ کیا
 
-
 const label2 = document.querySelector("#label2");
 const label3 = document.querySelector("#label3");
 const label4 = document.querySelector("#label4");
@@ -38,9 +37,8 @@ checkBtn.addEventListener("click", async function (event) {
 
     if (city === "") {
       para1.innerHTML = "Please Enter any City Name";
-
-      // para0.src = URL("https://icons8.com/preloaders/preloaders/151/preview.gif");
-      // para0.style.display= "none"
+      para0.src = ``;
+      para0.style.display = "none";
       label2.innerHTML = "";
       para2.innerHTML = "";
 
@@ -64,16 +62,36 @@ checkBtn.addEventListener("click", async function (event) {
       return;
     }
 
+    para1.innerHTML = "";
+    label2.innerHTML = "";
+    para2.innerHTML = "";
+    label3.innerHTML = "";
+    para3.innerHTML = "";
+    label4.innerHTML = "";
+    para4.innerHTML = "";
+    label5.innerHTML = "";
+    para5.innerHTML = "";
+    label6.innerHTML = "";
+    para6.innerHTML = "";
+    label7.innerHTML = "";
+    para7.innerHTML = "";
+    label8.innerHTML = "";
+    para8.innerHTML = "";
+
+    para0.src = `https://icons8.com/preloaders/preloaders/9/preview.gif`;
+    para0.style.display = "block";
+
+
     const result = await axios(
       `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city}`,
     );
 
-    para1.innerHTML=""
+    para1.innerHTML = "";
     takeInput.value = "";
 
     para0.src = `${result.data.current.condition.icon}`;
     para0.style.display = "block";
-    
+
     label2.innerHTML = "Temp";
     para2.innerHTML = `${Math.floor(result.data.current.temp_c)}°C `;
 
@@ -94,12 +112,11 @@ checkBtn.addEventListener("click", async function (event) {
 
     label8.innerHTML = "City";
     para8.innerHTML = `${result.data.location.name}`;
-  
   } catch (error) {
     para1.innerHTML = error.response.data.error.message;
 
     para0.src = ``;
-    para0.style.display="none"
+    para0.style.display = "none";
     label2.innerHTML = "";
     para2.innerHTML = "";
 
